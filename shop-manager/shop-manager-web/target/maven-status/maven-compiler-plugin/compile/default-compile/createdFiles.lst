@@ -1,0 +1,8 @@
+org\shop\web\controller\PictureController.class
+org\shop\web\controller\PageController.class
+org\shop\web\controller\ContentCategoryController.class
+org\shop\web\controller\ItemParamController.class
+org\shop\web\controller\ItemParamItemController.class
+org\shop\web\controller\ItemController.class
+org\shop\web\controller\ItemCatController.class
+org\shop\web\controller\ContentController.class

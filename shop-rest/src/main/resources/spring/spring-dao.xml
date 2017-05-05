@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="  
+   		 http://www.springframework.org/schema/beans  
+   		 http://www.springframework.org/schema/beans/spring-beans.xsd    
+   	     http://www.springframework.org/schema/context  
+      	 http://www.springframework.org/schema/context/spring-context.xsd  
+         http://www.springframework.org/schema/mvc   
+         http://www.springframework.org/schema/mvc/spring-mvc.xsd">  
+  		
+  	<!-- 配置整合mybatis过程 -->
+  	<!-- 约定大于配置 -->
+  	<!-- 配置数据库相关的参数 -->
+  	<context:property-placeholder location="classpath:/properties/*.properties" ignore-unresolvable="true"/>
+  	
+  	<!-- 配置数据源 -->
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+  	
+  	<!-- 配置SqlSessionFactory对象 -->
+  	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+  		<!-- 注入数据库连接池 -->
+  		<property name="dataSource" ref="dataSource"/>
+  		<!-- classpath为 java ,resource下的目录 -->
+  		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+  	</bean>
+  	
+  	<!-- 配置扫描Dao接口包，动态实现Dao接口,注入到spring容器中 -->
+  	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  		<!-- 注入SqlSessionFactory -->
+  		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+  		<!-- 给出需要扫描Dao接口包 -->
+  		<property name="basePackage" value="org.shop.manager.dao"/>	
+  	</bean>
+  	
+<!--    		RedisDao
+  	<bean id="redisDao" class="org.shop.dao.RedisDao">
+  		<constructor-arg index="0" value="localhost"/>
+  		<constructor-arg index="1" value="6379"/>
+  	</bean> -->
+ </beans> 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="  
+   		 http://www.springframework.org/schema/beans  
+   		 http://www.springframework.org/schema/beans/spring-beans.xsd    
+   	     http://www.springframework.org/schema/context  
+      	 http://www.springframework.org/schema/context/spring-context.xsd  
+         http://www.springframework.org/schema/mvc   
+         http://www.springframework.org/schema/mvc/spring-mvc.xsd">  
+		 <!-- 配置SpringMVC -->
+		 <!-- 1.开启SpringMVC注解模式 -->
+		 <!-- 简化配置：
+		 		1）自动注册DefaultAnnotationHandlerMapping ,AnnotationMethodHandlerAdapter
+		 		2)提供一系列：数据绑定，数字和日期的format @NumberFormat @DataTimeFormat
+		 		-->
+		<mvc:annotation-driven/>
+		
+		<!-- service-mapping
+			1.加入对静态资源的处理：js,gif
+			2.允许'/'做整体映射
+			-->
+		<mvc:resources location="/resources/css/" mapping="/css/**"/>
+		<mvc:resources location="/resources/js/" mapping="/js/**"/>
+		 
+
+		<mvc:default-servlet-handler/>
+		<!-- 3.配置jsp 显示ViewResolver -->
+		<bean
+			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="prefix" value="/WEB-INF/jsp/" />
+			<property name="suffix" value=".jsp" />
+		</bean>
+<!-- 		
+		<bean id="usersViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">			
+			<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+			<property name="viewClass" value="org.shop.utils.ResourceView"/>
+			<property name="prefix" value="/WEB-INF/jsp/users/"/>
+			<property name="suffix" value=".jsp"/>
+			<property name="order" value="1"/>
+		</bean> -->
+		
+		
+		<!-- 4.扫描web相关的bean -->
+		<context:component-scan base-package="org.shop.web.controller"/>
+		
+		<!-- 定义文件上传解析器 -->
+		<bean id="multipartResolver"
+			class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+			<!-- 设定默认编码 -->
+			<property name="defaultEncoding" value="UTF-8"></property>
+			<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+			<property name="maxUploadSize" value="5242880"></property>
+		</bean>
+</beans>

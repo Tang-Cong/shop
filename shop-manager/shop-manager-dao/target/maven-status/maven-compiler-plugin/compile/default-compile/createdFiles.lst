@@ -1,0 +1,11 @@
+org\shop\manager\dao\TbItemDescMapper.class
+org\shop\manager\dao\TbUserMapper.class
+org\shop\manager\dao\TbOrderMapper.class
+org\shop\manager\dao\TbContentMapper.class
+org\shop\manager\dao\TbItemParamItemMapper.class
+org\shop\manager\dao\TbItemCatMapper.class
+org\shop\manager\dao\TbContentCategoryMapper.class
+org\shop\manager\dao\TbOrderShippingMapper.class
+org\shop\manager\dao\TbItemParamMapper.class
+org\shop\manager\dao\TbOrderItemMapper.class
+org\shop\manager\dao\TbItemMapper.class

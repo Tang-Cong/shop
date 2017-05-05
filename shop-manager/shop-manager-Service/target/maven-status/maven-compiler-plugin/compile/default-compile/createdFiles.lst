@@ -1,0 +1,14 @@
+org\shop\manager\service\ContentCategoryService.class
+org\shop\manager\service\impl\ItemParamItemServiceImpl.class
+org\shop\manager\service\impl\ItemParamServiceImpl.class
+org\shop\manager\service\PictureService.class
+org\shop\manager\service\ItemService.class
+org\shop\manager\service\ItemCatService.class
+org\shop\manager\service\impl\ContentServiceImpl.class
+org\shop\manager\service\impl\PictureServiceImpl.class
+org\shop\manager\service\impl\ItemServiceImpl.class
+org\shop\manager\service\ContentService.class
+org\shop\manager\service\impl\ItemCatServiceImpl.class
+org\shop\manager\service\impl\ContentCategoryServiceImpl.class
+org\shop\manager\service\ItemParamService.class
+org\shop\manager\service\ItemParamItemService.class

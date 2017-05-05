@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!-- 
+  <typeAliases>
+    <typeAlias alias="UserAlias" type="org.apache.ibatis.submitted.complex_property.User"/>
+  </typeAliases> -->
+  
+  <settings>
+  	<!-- 获取数据库自增主键值 -->
+    <setting name="useGeneratedKeys" value="true"/>
+    <!-- 使用列别名替换列名  默认为true-->
+    <setting name="useColumnLabel" value="true"/>
+    <!-- 开启驼峰命名转换：table(create_time)->entity(createTime) -->
+    <!-- <setting name="mapUnderscoreToCamelCase" value="true"/> -->
+  </settings>
+  
+  <!-- 配置分页插件 -->
+  <plugins>
+  	<plugin interceptor="com.github.pagehelper.PageHelper">
+  		<property name="dialect" value="mysql"/>
+  	</plugin>
+  </plugins>
+</configuration>

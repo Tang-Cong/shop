@@ -1,0 +1,11 @@
+org\shop\search\pojo\Item.class
+org\shop\search\mapper\ItemMapper.class
+org\shop\search\controller\ItemController.class
+org\shop\search\pojo\SearchResult.class
+org\shop\search\service\impl\ItemServiceImpl.class
+org\shop\search\service\ItemService.class
+org\shop\search\controller\SearchController.class
+org\shop\search\dao\SearchDao.class
+org\shop\search\dao\impl\SearchDaoImpl.class
+org\shop\search\service\impl\SearchServiceImpl.class
+org\shop\search\service\SearchService.class
