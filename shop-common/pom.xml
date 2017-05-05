@@ -8,6 +8,7 @@
   <groupId>org.shop</groupId>
   <artifactId>shop-common</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
 <!-- 添加依赖 -->
 	<dependencies>
 		<dependency>
