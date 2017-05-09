@@ -8,6 +8,7 @@
 
 	maven（构建项目），svn(版本控制工具)，myeclipse(集成开发环境）,nginx(反向代理)，
 	FastDFS	(图片服务器),tomcat(web服务器)，zookeeper(集群管理)，mysql(数据库)
+	Junit(测试)
 
 ### 技术栈：
 
