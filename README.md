@@ -4,17 +4,17 @@
 
 注：本项目为开源项目，不能用于商业应用，仅供学习。
 
-###使用工具：
+### 使用工具：
 
 	maven（构建项目），svn(版本控制工具)，myeclipse(集成开发环境）,nginx(反向代理)，
 	FastDFS	(图片服务器),tomcat(web服务器)，zookeeper(集群管理)，mysql(数据库)
 
-###技术栈：
+### 技术栈：
 
 	spring,springmvc,mybatis(框架)
 	solr(搜索服务)，redis(缓存)，easyUI(后台系统页面)
 
-###数据库设计
+### 数据库设计
 
 	tb_user用户表(id,username,password,phone,email,created,updated)
 	tb_item商品表(id,title,sell_point,price,num,barcode,image,cid,status,created,updated)
@@ -28,10 +28,10 @@
 	tb_content_category商品目录分类表(id,parent_id,name,status,sort_order,is_parent,created,updated)
 	tb_content商品目录表（id,category_id,title,sub_title,title_desc,url,pic,pic2,content,created,updated）
 
-##分布式系统
+## 分布式系统
 
-###商品后台管理系统 
-###shop-manager（管理后台）
+### 商品后台管理系统 
+### shop-manager（管理后台）
 
 	商品的添加功能:
 	1.商品类目选择-easyui异步tree控件的使用
@@ -43,14 +43,14 @@
 	1.分页插件的使用PageHelper。
 	2.easyUIDataGrid的使用
 
-###前台系统
+### 前台系统
 
-###shop-rest（发布服务）
+### shop-rest（发布服务）
 
-###shop-search（搜索服务）
+### shop-search（搜索服务）
 
 * 使用solr实现搜索，内容列表使用redis缓存，使用zookeeper管理集群
-###shop-sso (单点登录系统)
+### shop-sso (单点登录系统)
 
 SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 用户只需要登录一次就可以访问所有相互信任的应用系统。它包括
@@ -69,7 +69,7 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 	1、tomcat做集群配置session复制。如果集群中节点很多，会形成网络风暴。推荐节点数量不要超过5个。
 	2、分布式架构。拆分成多个子系统。（本项目使用）
 	
-###shop-order（订单系统）
+### shop-order（订单系统）
 
 * 当用户提交订单时此时必须要求用户登录，可以使用拦截器来实现。
  
@@ -82,7 +82,7 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 	5. 如果用户session已经过期，跳转到登录页面
 	6. 如果没有过期，放行。
 
-###代码：
+### 代码：
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
@@ -109,7 +109,7 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 		return true;
 	}
 	
-###shop-portal (门户系统）
+### shop-portal (门户系统）
 
 	购物车：
 		1、添加购物车不需要用户登录。购物车的数据应该放到cookie中。
@@ -127,7 +127,7 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 		4、如果想redis中转移商品时，redis的购物车中已经有商品，此时，需要把商品合并。如果是同一款商品数量叠加，如果新商品就合并商品。
 	跨域问题：
 		使用jsonp返回商品目录（ajax方式动态加载）
-###代码：
+### 代码：
 
 	/**
 	 * 购物车Service
