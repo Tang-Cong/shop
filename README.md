@@ -5,14 +5,17 @@
 注：本项目为开源项目，不能用于商业应用，仅供学习。
 
 ###使用工具：
+
 	maven（构建项目），svn(版本控制工具)，myeclipse(集成开发环境）,nginx(反向代理)，
 	FastDFS	(图片服务器),tomcat(web服务器)，zookeeper(集群管理)，mysql(数据库)
 
 ###技术栈：
+
 	spring,springmvc,mybatis(框架)
 	solr(搜索服务)，redis(缓存)，easyUI(后台系统页面)
 
 ###数据库设计
+
 	tb_user用户表(id,username,password,phone,email,created,updated)
 	tb_item商品表(id,title,sell_point,price,num,barcode,image,cid,status,created,updated)
 	tb_cat商品分类表（id,parent_id,name,status,sort_order,is_parent,created,updated）
@@ -29,6 +32,7 @@
 
 ###商品后台管理系统 
 ###shop-manager（管理后台）
+
 	商品的添加功能:
 	1.商品类目选择-easyui异步tree控件的使用
 	2.图片上传（fastdfs+nginx）
@@ -40,10 +44,14 @@
 	2.easyUIDataGrid的使用
 
 ###前台系统
+
 ###shop-rest（发布服务）
+
 ###shop-search（搜索服务）
+
 * 使用solr实现搜索，内容列表使用redis缓存，使用zookeeper管理集群
 ###shop-sso (单点登录系统)
+
 SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 用户只需要登录一次就可以访问所有相互信任的应用系统。它包括
 可以将这次主要的登录映射到其他应用中用于同一个用户的登录的机制。
@@ -60,7 +68,9 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 	Session共享的问题：
 	1、tomcat做集群配置session复制。如果集群中节点很多，会形成网络风暴。推荐节点数量不要超过5个。
 	2、分布式架构。拆分成多个子系统。（本项目使用）
+	
 ###shop-order（订单系统）
+
 * 当用户提交订单时此时必须要求用户登录，可以使用拦截器来实现。
  
 拦截器的处理流程：
@@ -73,6 +83,7 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 	6. 如果没有过期，放行。
 
 ###代码：
+
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
@@ -97,7 +108,9 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 		// 返回值决定handler是否执行。true：执行，false：不执行。
 		return true;
 	}
+	
 ###shop-portal (门户系统）
+
 	购物车：
 		1、添加购物车不需要用户登录。购物车的数据应该放到cookie中。
 		2、当向购物车添加同一款商品时，购物车中商品的数量增加。
@@ -115,6 +128,7 @@ SSO英文全称Single Sign On，单点登录。SSO是在多个应用系统中，
 	跨域问题：
 		使用jsonp返回商品目录（ajax方式动态加载）
 ###代码：
+
 	/**
 	 * 购物车Service
 	 */
